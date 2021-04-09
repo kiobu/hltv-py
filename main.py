@@ -1,6 +1,7 @@
-from api.base_request import Request
-from api.models import Endpoint
+from api.match.request import MatchRequest
 
-# tests
-req = Request()
-print(req().select_one("a"))
+match_id: int = 2347762
+
+match = MatchRequest(match_id)
+
+print(match())

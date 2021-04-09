@@ -1,5 +1,5 @@
 from api.base_request import Request
-
+from api.models import Endpoint
 from api.consts import Consts
 
 
@@ -8,7 +8,7 @@ class MatchRequest(Request):
         super().__init__()
         self.match_id = match_id
 
-        self.url += str(self.match_id)  # Set request URL to include the match ID.
+        self.url += Endpoint.match.value + str(self.match_id)  # Set request URL to include the match ID.
         self._attach_uuid()
 
     def _attach_uuid(self):

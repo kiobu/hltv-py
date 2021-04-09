@@ -3,5 +3,5 @@ from enum import Enum
 
 
 class Endpoint(Enum):
-    match = "match"
-    team = "team"
+    match = "/matches/"
+    team = "/team/"

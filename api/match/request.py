@@ -15,4 +15,4 @@ class MatchRequest(Request):
         self.url += f"/{Consts.MOCK_UUID}"
 
     def __call__(self):
-        super().__call__()
+        return super().__call__()

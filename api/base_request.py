@@ -10,6 +10,6 @@ class Request:
         self.url = Consts.HLTV_URL
 
     def __call__(self):
-        parser = ResponseParser(requests.get(self.url))
+        parser = ResponseParser(requests.get(self.url, headers={'User-Agent': Consts.USER_AGENT}))
         self.parsed_body: Any = parser()
         return self.parsed_body

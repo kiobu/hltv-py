@@ -2,7 +2,7 @@ from typing import Union, Any
 import requests
 
 from api.parser import ResponseParser
-from api.consts import Consts
+from api.models import Consts
 
 
 class Request:

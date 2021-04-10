@@ -2,12 +2,12 @@ from api.base_request import Request
 from api.models import Endpoint, Consts
 
 
-class MatchRequest(Request):
-    def __init__(self, match_id: int):
+class TeamRequest(Request):
+    def __init__(self, team_id: int):
         super().__init__()
-        self.match_id = match_id
+        self.team_id = team_id
 
-        self.url += Endpoint.match.value + str(self.match_id)  # Set request URL to include the match ID.
+        self.url += Endpoint.team.value + str(self.team_id)  # Set request URL to include the match ID.
         self._attach_uuid()
 
     def _attach_uuid(self):

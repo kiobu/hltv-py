@@ -21,7 +21,7 @@ class HLTV:
         ret = list()
         for div in body.find_all("div", attrs={"class": "contentCol"}):
             for a in div.find_all("a"):
-                if class_kind.__name__.lower() in a['href']:
+                if f"/{class_kind.__name__.lower()}/" in a['href']:
                     ret.append(class_kind(int(re.split(r'[^/]+/(\w+)', a['href'])[1])))
 
         return tuple(ret)

@@ -3,6 +3,7 @@ import re
 
 from api.match.request import MatchRequest
 from models.team.lib import Team
+from libs.helper import get_head_data
 
 
 class Match:
@@ -17,8 +18,8 @@ class Match:
         return Match(match_id)
 
     def _canonicalize_body(self, body: Any):
-        self.results['title'] = body.select("title")[0].text
-        self.results['real_link'] = body.find_all("link", {"rel": "canonical"})[0]['href']
+        head = get_head_data(body)
+        self.results.update(head)
         self.results['team_one'], self.results['team_two'] = self._get_teams()
 
     def _get_teams(self):

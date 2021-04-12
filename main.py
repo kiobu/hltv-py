@@ -1,8 +1,9 @@
-from api.match.request import MatchRequest
-from match.lib import Match
+from typing import Tuple
 
-match_id: int = 2347822
+from models.player.lib import Player
+from models.hltv.lib import HLTV
 
-match = Match.get(match_id)
+results: Tuple[Player] = HLTV.find_player("Twistzz")
 
-print(match.results['real_link'])
+for player in results:
+    print(player.player_id)

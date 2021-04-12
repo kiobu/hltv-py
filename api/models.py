@@ -12,3 +12,5 @@ class Consts:
 class Endpoint(Enum):
     match = "/matches/"
     team = "/team/"
+    player = "/player/"
+    search = "/search?query="

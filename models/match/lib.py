@@ -2,7 +2,7 @@ from typing import Any
 import re
 
 from api.match.request import MatchRequest
-from team.lib import Team
+from models.team.lib import Team
 
 
 class Match:

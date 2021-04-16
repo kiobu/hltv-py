@@ -1,8 +1,10 @@
 from typing import Any
 
 from api.player.request import PlayerRequest
-from libs.helper import get_head_data
+from libs.helper import *
 import libs.logger
+
+from models.team.lib import *
 
 
 class Player:
@@ -27,6 +29,16 @@ class Player:
                         self.results['nickname'] = tag.text
                     if tag.has_attr('class') and 'playerRealname' in tag['class']:
                         self.results['real_name'] = tag.text
+                        for img in tag.find_all("img", attrs={"itemprop": "nationality"}):
+                            self.results['nationality'] = img['title']
+                    if tag.has_attr('class') and 'playerTeam' in tag['class']:
+                        for a in tag.find_all("a"):
+                            if "/team/" in a['href']:
+                                self.results['team'] = Team.get(get_id_from_link(a['href']))
+                        try:  # Try to access the player's team, and if it KeyErrors, return as None.
+                            self.results['team']
+                        except KeyError:
+                            self.results['team'] = None
                     if tag.has_attr('class') and 'playerBodyshot' in tag['class']:
                         img = tag.select("img", attrs={"class": "bodyshot-img"})
                         self.results['image'] = img[0]['src']

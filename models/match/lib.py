@@ -3,7 +3,7 @@ import re
 
 from api.match.request import MatchRequest
 from models.team.lib import Team
-from libs.helper import get_head_data
+from libs.helper import *
 
 
 class Match:
@@ -27,6 +27,6 @@ class Match:
         for div in self.body.find_all("div", attrs={"class": "standard-box teamsBox"}):
             for a in div.find_all("a"):
                 if "/team/" in a['href']:
-                    ret.append(Team.get(int(re.split(r'[^/]+/(\w+)', a['href'])[1])))
+                    ret.append(Team.get(get_id_from_link(a['href'])))
 
         return tuple(ret)

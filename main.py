@@ -7,4 +7,4 @@ import libs.logger
 results: Tuple[Player] = HLTV.find_player("n0thing")
 
 for player in results:
-    libs.logger.success(str(player.results))
+    print(str(player.results))

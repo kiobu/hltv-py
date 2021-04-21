@@ -13,6 +13,7 @@ class HLTV:
 
     @staticmethod
     def _find(class_kind: Union[Type[Player], Type[Team]], query: str):  # Types in Union must be ID-indexed (ints).
+        query = query.replace(" ", "+")
         response_body = SearchRequest(query)()
         return HLTV._get_results(response_body, class_kind)
 

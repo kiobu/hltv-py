@@ -1,3 +1,4 @@
+import hltv.libs.logger
 from hltv.api.player.request import PlayerRequest
 from hltv.libs.helper import *
 
@@ -38,7 +39,10 @@ class Player:
                             self.results['team'] = None
                     if tag.has_attr('class') and 'playerBodyshot' in tag['class']:
                         img = tag.select("img", attrs={"class": "bodyshot-img"})
-                        self.results['image'] = img[0]['src']
+                        if "placeholder.svg" in img[0]['src']:
+                            self.results['image'] = None
+                        else:
+                            self.results['image'] = img[0]['src']
         except KeyError as e:
-            package.libs.logger.error(f"There was an issue parsing the body of the page: {repr(e)}")
+            hltv.libs.logger.error(f"There was an issue parsing the body of the page: {repr(e)}")
 

@@ -1,9 +1,9 @@
-from typing import Union, Any
+from typing import Any
 import requests
-import libs.logger
+import package.libs.logger
 
-from api.parser import ResponseParser
-from api.models import Consts
+from package.api.parser import ResponseParser
+from package.api.models import Consts
 
 
 class Request:
@@ -11,7 +11,7 @@ class Request:
         self.url = Consts.HLTV_URL
 
     def __call__(self):
-        libs.logger.request(f"GET: [{self.url}]")
+        package.libs.logger.request(f"GET: [{self.url}]")
         parser = ResponseParser(requests.get(self.url, headers={'User-Agent': Consts.USER_AGENT}))
         self.parsed_body: Any = parser()
         return self.parsed_body

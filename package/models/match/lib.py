@@ -1,9 +1,6 @@
-from typing import Any
-import re
-
-from api.match.request import MatchRequest
-from models.team.lib import Team
-from libs.helper import *
+from package.api.match.request import MatchRequest
+from package.models.team.lib import Team
+from package.libs.helper import *
 
 
 class Match:

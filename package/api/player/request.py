@@ -1,5 +1,5 @@
-from api.base_request import Request
-from api.models import Endpoint, Consts
+from package.api.base_request import Request
+from package.api.models import Endpoint, Consts
 
 
 class PlayerRequest(Request):

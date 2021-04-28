@@ -1,10 +1,7 @@
-from typing import Any
+from package.api.player.request import PlayerRequest
+from package.libs.helper import *
 
-from api.player.request import PlayerRequest
-from libs.helper import *
-import libs.logger
-
-from models.team.lib import *
+from package.models.team.lib import *
 
 
 class Player:
@@ -43,5 +40,5 @@ class Player:
                         img = tag.select("img", attrs={"class": "bodyshot-img"})
                         self.results['image'] = img[0]['src']
         except KeyError as e:
-            libs.logger.error(f"There was an issue parsing the body of the page: {repr(e)}")
+            package.libs.logger.error(f"There was an issue parsing the body of the page: {repr(e)}")
 

@@ -1,6 +1,6 @@
 from typing import Any
 
-from api.team.request import TeamRequest
+from package.api.team.request import TeamRequest
 
 
 class Team:

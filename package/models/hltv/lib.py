@@ -2,9 +2,9 @@ import re
 
 from typing import Union, Type, Any
 
-from api.hltv.search_request import SearchRequest
-from models.player.lib import Player
-from models.team.lib import Team
+from package.api.hltv.search_request import SearchRequest
+from package.models.player.lib import Player
+from package.models.team.lib import Team
 
 
 class HLTV:

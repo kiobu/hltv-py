@@ -1,5 +1,5 @@
-from package.api.base_request import Request
-from package.api.models import Endpoint, Consts
+from hltv.api.base_request import Request
+from hltv.api.models import Endpoint, Consts
 
 
 class PlayerRequest(Request):

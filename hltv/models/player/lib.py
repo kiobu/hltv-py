@@ -1,7 +1,7 @@
-from package.api.player.request import PlayerRequest
-from package.libs.helper import *
+from hltv.api.player.request import PlayerRequest
+from hltv.libs.helper import *
 
-from package.models.team.lib import *
+from hltv.models.team.lib import *
 
 
 class Player:

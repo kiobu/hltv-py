@@ -1,6 +1,6 @@
-from package.api.match.request import MatchRequest
-from package.models.team.lib import Team
-from package.libs.helper import *
+from hltv.api.match.request import MatchRequest
+from hltv.models.team.lib import Team
+from hltv.libs.helper import *
 
 
 class Match:

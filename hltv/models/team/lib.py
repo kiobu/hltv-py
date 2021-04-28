@@ -1,6 +1,6 @@
 from typing import Any
 
-from package.api.team.request import TeamRequest
+from hltv.api.team.request import TeamRequest
 
 
 class Team:

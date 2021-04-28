@@ -1,6 +1,6 @@
-from package import *
+import hltv
 
-results = HLTV.find_player("n0thing")
+results = hltv.HLTV.find_player("n0thing")
 
 for player in results:
     print(str(player.results))
